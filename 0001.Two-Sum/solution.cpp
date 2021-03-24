@@ -2,9 +2,10 @@
 #include <vector>
 #include <cstdio>
 #include <cstdlib>
+#include <map>
 
 using namespace std;
-
+/*
 class Solution{
 public:
 	vector<int> twoSum(vector<int> &nums, int target) {
@@ -21,6 +22,27 @@ public:
 		}
         return vector<int>();
     }
+};
+*/
+
+class Solution{
+public:
+	vector<int> twoSum(vector<int> &nums, int target) {
+		map<int, int> m;
+		vector<int> ans(2, -1);
+		for (int i=0; i < nums.size(); i++)
+		{
+			if (m.find(target-nums[i])!= m.end())
+			{
+				ans[0] = m[target-nums[i]];
+				ans[1] = i;
+				break;
+			}
+//			m[nums[i]] = i;
+			m.insert(map<int, int>::value_type(nums[i],i));
+		}
+		return ans;
+	}
 };
 
 
