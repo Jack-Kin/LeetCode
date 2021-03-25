@@ -3,6 +3,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <map>
+#include <unordered_map>
 
 using namespace std;
 /*
@@ -25,27 +26,47 @@ public:
 };
 */
 
+// using map (realized by red black tree in STL)
+//class Solution{
+//public:
+//	vector<int> twoSum(vector<int> &nums, int target) {
+//		map<int, int> m;
+//		vector<int> ans(2, -1);
+//		for (int i=0; i < nums.size(); i++)
+//		{
+//			if (m.find(target-nums[i])!= m.end())
+//			{
+//				ans[0] = m[target-nums[i]];
+//				ans[1] = i;
+//				break;
+//			}
+////			m[nums[i]] = i;
+//			m.insert(map<int, int>::value_type(nums[i],i));
+//		}
+//		return ans;
+//	}
+//};
+
+
+
+// using unordered map (realized by hash table)
+// a very neat way
 class Solution{
 public:
-	vector<int> twoSum(vector<int> &nums, int target) {
-		map<int, int> m;
-		vector<int> ans(2, -1);
-		for (int i=0; i < nums.size(); i++)
-		{
-			if (m.find(target-nums[i])!= m.end())
-			{
-				ans[0] = m[target-nums[i]];
-				ans[1] = i;
-				break;
-			}
-//			m[nums[i]] = i;
-			m.insert(map<int, int>::value_type(nums[i],i));
-		}
-		return ans;
-	}
+    vector<int> twoSum(vector<int> &nums, int target) {
+        unordered_map<int, int> hash;
+        for (int i = 0; i < nums.size(); ++i)
+        {
+            auto it = hash.find(target-nums[i]);
+            if (it != hash.end())
+            {
+                return vector<int> {it->second, i};
+            }
+            hash[nums[i]] = i;
+        }
+        return vector<int> {-1, -1};
+    }
 };
-
-
 /*
     test
 */
