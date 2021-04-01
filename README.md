@@ -11,6 +11,6 @@
 | 0206 | [cpp](0206.Reverse-Linked-List/a.cpp)  |        |        |  Easy  |  Linked List; Reverse  |
 | 0141 |  [cpp](0141.Linked-List-Cycle/a.cpp)   |        |        |  Easy  | Linked List; fast/slow |
 | 0142 | [cpp](0142.Linked-List-Cycle-II/a.cpp) |        |        | Medium | Linked List; fast/slow |
-|      |                                        |        |        |        |                        |
+| 0023 | [cpp](0023.Merge-k-Sorted-Lists/a.cpp) |        |        |  Hard  | Linked List; recur; pq |
 |      |                                        |        |        |        |                        |
 
